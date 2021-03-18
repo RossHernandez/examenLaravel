@@ -78,7 +78,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                         <div class="form-group">
                                             <span>Telefono</span>
-                                            <input type="text" name="telefono" id="telefono" class="form-control input-sm" value="{{$empleado->telefono}}">
+                                            <input type="text" name="telefono" id="telefono" class="form-control input-sm" value="{{$empleado->telefono}}" required>
                                         </div>
                                     </div>
                                     <!--

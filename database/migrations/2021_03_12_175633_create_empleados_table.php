@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateEmpleadosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('empleados', function (Blueprint $table) {
@@ -30,12 +25,6 @@ class CreateEmpleadosTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * $table->boolean('eliminado', 50);
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('empleados');

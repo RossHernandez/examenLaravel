@@ -116,8 +116,8 @@
           <script type="text/javascript">
               var dolar = document.getElementById("usd");
               var valorM = {!! $valor_actual !!};
-              var min = 100.00;
-              var max = 100000.00;
+              var min = 1.00;
+              var max = 1000000.00;
 
               function cambDolar(valNum) {
                   document.getElementById("usd").value=valNum / valorM;
@@ -126,11 +126,11 @@
               function camPesos(valNum) {
                   document.getElementById("mxn").value=valNum * valorM;
 
-                  if(dolar.value > min && dolar.value < max){
-                      $('.div').removeClass('has-error has-feedback');
-                  }else{
-                      $('.div').addClass('has-error has-feedback');
-                  }
+                 // if(dolar.value > min && dolar.value < max){
+                 //     $('.div').removeClass('has-error has-feedback');
+                 // }else{
+                  //    $('.div').addClass('has-error has-feedback');
+                  //}
 
               }
           </script>

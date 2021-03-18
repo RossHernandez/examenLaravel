@@ -45,20 +45,19 @@
                                         <td class="text-center">${{$empleado->sueldo_dolar}}</td>
                                         <td class="text-center">${{$empleado->sueldo_pesos}}</td>
                                         <td class="text-center">{{$empleado->correo}}</td>
-                                        <td class="text-center">@if($empleado->activo == 1) Activo @else Inactivo @endif</td>
+                                        <td id="estado-{{$empleado->id}}" class="text-center">@if($empleado->activo == 1) Activo @else Inactivo @endif</td>
                                         <td class="text-center">
                                             <a class="btn btn-default btn-xs" href="{{action('EmpleadoController@show', $empleado->id)}}" >
                                                 <span class="fa fa-eye"></span>
                                             </a>
-                                            @if($empleado->activo == 1)
-                                                <a class="btn btn-default btn-xs btnInact" data-id="{{$empleado->id}}" data-estado="0" style="color:red">
+
+                                                <a id="btnInactivo-{{$empleado->id}}" class="btn btn-default btn-xs btnInact" data-id="{{$empleado->id}}" data-estado="0" style="color:red;display: @if($empleado->activo == 0) none; @endif ">
                                                     <span class="fa fa-stop-circle"></span>
                                                 </a>
-                                            @else
-                                            <a class="btn btn-default btn-xs btnActiv" data-id="{{$empleado->id}}" data-estado="1" style="color: green">
+
+                                            <a id="btnActivo-{{$empleado->id}}" class="btn btn-default btn-xs btnActiv" data-id="{{$empleado->id}}" data-estado="1" style="color: green; display:  @if($empleado->activo == 1) none; @endif">
                                                 <span class="fa fa-play-circle"></span>
                                             </a>
-                                           @endif
                                             <a class="btn btn-primary btn-xs" href="{{action('EmpleadoController@edit', $empleado->id)}}">
                                                 <span class="fa fa-edit"></span>
                                             </a>
@@ -96,7 +95,7 @@
 
             Swal.fire({
                 title: '¿Seguro que desea eliminar?',
-                text: "No podrá revertir los cambios",
+                text: "Atención, No podrá revertir los cambios",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -132,7 +131,17 @@
                     beforeSend: function () {
                     },
                     success: function (data) {
-                        window.location.reload();
+                       // window.location.reload();
+                      //  $("#btnInact").html(response);
+                        if(estado=="0"){
+                            $("#estado-"+idempleado).html('Inactivo');
+                            $("#btnActivo-"+idempleado).show();
+                            $("#btnInactivo-"+idempleado).hide();
+                        }else{
+                            $("#estado-"+idempleado).html('Activo');
+                            $("#btnActivo-"+idempleado).hide();
+                            $("#btnInactivo-"+idempleado).show();
+                        }
                     },
                     error: function (err) {
                         console.log(err);

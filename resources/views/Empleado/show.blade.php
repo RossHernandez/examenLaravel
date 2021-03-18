@@ -75,8 +75,8 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-xs-8 col-sm-8 col-md-8">
-                                <p class="panel-title">Proyección salarial</p>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <p class="panel-title" style="color: black;background: #a0e9b0">Proyección salarial</p> <br>
                                 </div>
                             </div>
                             <div class="row">
