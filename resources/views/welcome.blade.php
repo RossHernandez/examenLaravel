@@ -70,6 +70,7 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/empleados') }}">Empleados</a>
+                        <a href="{{ route('login') }}">Iniciar Sesion</a>
                     @else
                         <a href="{{ route('login') }}">Iniciar Sesion</a>
                         <a href="{{ route('register') }}">Registrarse</a>
